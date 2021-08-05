@@ -8,7 +8,7 @@ class Character
     private $defPoints;
     private $warCry;
     private $race;
-    private $equipment;
+    private $equipments;
 
     public function __construct($race, $name)
     {
@@ -18,6 +18,7 @@ class Character
         $this->attpoints = 10;
         $this->defpoints = 5;
         $this->warCry = 'Attack';
+        $this->equipments = array();
 
         if ($race == 'Orc')
             $this->warCry = 'wwouogrouroulou mlll !!';
@@ -29,18 +30,48 @@ class Character
     }
 
     // Manage equipment
-    public function add_equipment(Equipment $equip)
+    public function addEquipment($equipment)
     {
-        $this->equipment = $equip;
+    if (count($this->_equipments) < 4) {
+      $swords = 0;
+      $shield = 0;
+
+      foreach ($this->_equipments as $equip) {
+        if ($equip->getType() === 'Sword')
+          $swords++;
+
+        if ($equip->getType() === 'Shield')
+          $shield++;
+      }
+
+      if ($equipment->getType() === 'Sword' && $swords >= 2)
+        return 'You already have 2 swords';
+
+      if ($equipment->getType() === 'Shield' && $shield >= 1)
+        return 'You already have a shield';
+
+      $this->_equipments[] = $equipment;
+      return 'Equiped';
+    } else
+      return 'You already have 4 items';
     }
 
-    public function remove_equipment()
+    public function remove_equipment(Equipment $equipment)
     {
-        $this->equipment = null;
+        foreach ($this->_equipments as $key => $equip) {
+            if ($equipment === $equip) {
+                unset($this->_equipments[$key]);
+                return 'Item removed';
+            }
+        }
+
+        return 'Item not found';
     }
 
     public function display_equipment()
     {
-        echo $this->equipment;
+        foreach ($this->_equipments as $equip) {
+            echo $equip;
+        }
     }
 }
