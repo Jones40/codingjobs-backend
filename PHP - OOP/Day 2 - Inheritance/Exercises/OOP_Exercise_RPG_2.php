@@ -1,6 +1,5 @@
 <?php 
 
-
 /*
 
 	Continue/Using the RPG exercise.
