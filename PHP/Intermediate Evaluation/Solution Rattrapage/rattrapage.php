@@ -12,11 +12,11 @@
                         echo $amount. 'EUR = ' . $amount*129.5. ' YEN<br>';
                         break;
                     default:
-                        echo 'currency muss be EUR or YEN<br>'; 
+                        echo 'currency must be EUR or YEN<br>'; 
 
             }
             else
-                echo 'currency muss be EUR or YEN<br>'; 
+                echo 'currency must be EUR or YEN<br>'; 
         }
         else
            echo 'Amont muss be a number<br>'; 
