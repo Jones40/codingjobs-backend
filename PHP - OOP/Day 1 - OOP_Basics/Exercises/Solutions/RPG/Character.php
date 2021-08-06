@@ -30,24 +30,24 @@ class Character
   }
 
   // Manage equipment
-  public function addEquipment($equipment)
+  public function add_equipment($equipment)
   {
     if (count($this->equipments) < 4) {
       $swords = 0;
       $shield = 0;
 
       foreach ($this->equipments as $equip) {
-        if ($equip->getType() === 'Sword')
+        if ($equip->get_type() === 'Sword')
           $swords++;
 
-        if ($equip->getType() === 'Shield')
+        if ($equip->get_type() === 'Shield')
           $shield++;
       }
 
-      if ($equipment->getType() === 'Sword' && $swords >= 2)
+      if ($equipment->get_type() === 'Sword' && $swords >= 2)
         return 'You already have 2 swords';
 
-      if ($equipment->getType() === 'Shield' && $shield >= 1)
+      if ($equipment->get_type() === 'Shield' && $shield >= 1)
         return 'You already have a shield';
 
       $this->equipments[] = $equipment;

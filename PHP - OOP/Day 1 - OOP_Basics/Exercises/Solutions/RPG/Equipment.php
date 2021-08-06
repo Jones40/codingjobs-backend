@@ -15,6 +15,11 @@ class Equipment
         $this->hltpoints = $hlt;
     }
 
+    public function get_type()
+    {
+        return $this->name;
+    }
+
     public function __toString()
     {
         return 'Equipment informations : <br>
