@@ -1,27 +1,24 @@
 <?php
 
-class Character
+class Adventurer
 {
-  private $name;
-  private $hltPoints;
-  private $attPoints;
-  private $defPoints;
-  private $warCry;
-  private $race;
-  private $equipments;
+  protected $name;
+  protected $hltPoints;
+  protected $attPoints;
+  protected $defPoints;
+  protected $warCry;
+  protected $equipments;
+  protected $speed;
 
-  public function __construct($race, $name)
+  public function __construct($name)
   {
-    $this->race = $race;
     $this->name = $name;
     $this->hltpoints = 100;
     $this->attpoints = 10;
     $this->defpoints = 5;
+    $this->speed = 2;
     $this->warCry = 'Attack';
     $this->equipments = array();
-
-    if ($race == 'Orc')
-      $this->warCry = 'wwouogrouroulou mlll !!';
   }
 
   public function get_warcry()
