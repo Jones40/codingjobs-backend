@@ -1,16 +1,15 @@
 <?php
 
-require_once 'Character.php';
 require_once 'Equipment.php';
+require_once 'Adventurer.php';
+require_once 'Elf.php';
 
 $legolas = new Elf('Legolas');
-$orc = new Orc('Orcas');
-
-$legolas->attack($orc);
-/*
+$legolas2 = new Elf('Legolasazeraz');
 $sword1 = new Equipment("Sword", 10, 0, 0);
-$sword2 = new Equipment("Sword", 15, -2, 3);
-$shield = new Equipment("Shield", 0, 10, 0);
-
+echo '<pre>';
+var_dump($legolas);
+echo '</pre>';
 $legolas->add_equipment($sword1);
-*/
+
+$legolas2->attack($legolas);

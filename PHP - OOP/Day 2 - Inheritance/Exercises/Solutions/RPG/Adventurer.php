@@ -13,9 +13,9 @@ class Adventurer
   public function __construct($name)
   {
     $this->name = $name;
-    $this->hltpoints = 100;
-    $this->attpoints = 10;
-    $this->defpoints = 5;
+    $this->hltPoints = 100;
+    $this->attPoints = 10;
+    $this->defPoints = 5;
     $this->speed = 2;
     $this->warCry = 'Attack';
     $this->equipments = array();
@@ -27,24 +27,24 @@ class Adventurer
   }
 
   // Manage equipment
-  public function addEquipment($equipment)
+  public function add_equipment($equipment)
   {
     if (count($this->equipments) < 4) {
       $swords = 0;
       $shield = 0;
 
       foreach ($this->equipments as $equip) {
-        if ($equip->getType() === 'Sword')
+        if ($equip->get_type() === 'Sword')
           $swords++;
 
-        if ($equip->getType() === 'Shield')
+        if ($equip->get_type() === 'Shield')
           $shield++;
       }
 
-      if ($equipment->getType() === 'Sword' && $swords >= 2)
+      if ($equipment->get_type() === 'Sword' && $swords >= 2)
         return 'You already have 2 swords';
 
-      if ($equipment->getType() === 'Shield' && $shield >= 1)
+      if ($equipment->get_type() === 'Shield' && $shield >= 1)
         return 'You already have a shield';
 
       $this->equipments[] = $equipment;

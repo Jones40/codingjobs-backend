@@ -2,14 +2,26 @@
 
 class Elf extends Adventurer
 {
-    public function attack(Adventurer $opponent) {
+    public function attack(Adventurer $opponent)
+    {
         // Count how much swords
-        // $bonus = 2 * $nbSwords;
-        // $atk = $atk + $bonus
-        // remove from $opponent->life() - $atk
-    } 
+        $swords = 0;
 
-    public function use_power() {
+        foreach ($this->equipments as $equip) {
+            if ($equip->get_type() === 'Sword')
+                $swords++;
+        }
+        // Bonus for each sword
+        $bonus = 2 * $swords;
 
+        // Total atk
+        $totalAtk = $this->attPoints + $bonus;
+
+        // remove life points from opponent
+        $opponent->hltPoints -= $totalAtk;
+    }
+
+    public function use_power()
+    {
     }
 }
