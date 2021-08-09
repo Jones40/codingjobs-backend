@@ -15,12 +15,12 @@ $robot2 = new Robot('y9877', 'Gold');
 
 // Creature array 
 $creatureArray = array(
-    $garfield,
-    $snoopy,
-    $caty,
-    $joe,
-    $simon,
-    new Human('John', 'Brown', 'Male')
+    0 => $garfield,
+    1 => $snoopy,
+    2 => $caty,
+    3 => $joe,
+    4 => $simon,
+    5 => new Human('John', 'Brown', 'Male')
 );
 
 // Create Human/robots
@@ -40,10 +40,19 @@ for ($i = 0; $i <= 10; $i++) {
 }
 
 echo '<hr>';
+$injured = [];
+
 // Loop 10 times
 for ($i = 0; $i <= 10; $i++) {
     // generate random int
     $random = rand(0, count($workersArray) - 1);
     // Access the object and ask it to communicate
-    $workersArray[$random]->work();
+    try {
+        // Get the workers to work
+        $workersArray[$random]->work();
+    } catch (WorkAccidentException $e) {
+        echo 'Work accident exception ! ';
+        // Save as injured if exception triggered
+        $injured[] = $workersArray[$random];
+    }
 }
