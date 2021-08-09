@@ -39,17 +39,11 @@ for ($i = 0; $i <= 10; $i++) {
     $creatureArray[$random]->communicate();
 }
 
+echo '<hr>';
 // Loop 10 times
 for ($i = 0; $i <= 10; $i++) {
     // generate random int
     $random = rand(0, count($workersArray) - 1);
     // Access the object and ask it to communicate
     $workersArray[$random]->work();
-}
-
-
-foreach ($workersArray as $worker) {
-    if (get_class($worker) == 'Robot') {
-    } elseif (get_class($worker) == 'Human') {
-    }
 }

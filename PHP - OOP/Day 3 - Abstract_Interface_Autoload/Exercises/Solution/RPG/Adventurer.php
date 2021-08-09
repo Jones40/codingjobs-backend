@@ -1,6 +1,6 @@
 <?php
 
-class Adventurer
+abstract class Adventurer
 {
   protected $name;
   protected $hltPoints;
@@ -71,4 +71,7 @@ class Adventurer
       echo $equip;
     }
   }
+
+  abstract public function attack(Adventurer $opponent);
+  abstract public function use_power();
 }
