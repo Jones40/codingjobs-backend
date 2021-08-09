@@ -46,3 +46,10 @@ for ($i = 0; $i <= 10; $i++) {
     // Access the object and ask it to communicate
     $workersArray[$random]->work();
 }
+
+
+foreach ($workersArray as $worker) {
+    if (get_class($worker) == 'Robot') {
+    } elseif (get_class($worker) == 'Human') {
+    }
+}
