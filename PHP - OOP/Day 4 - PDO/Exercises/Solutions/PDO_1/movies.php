@@ -10,7 +10,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=movie_db', 'root', '');
 if ($pdo) {
 
     // 2. Prepare the query
-    $query = 'SELECT * FROM movies';
+    $query = 'SELECT * FROM movies m INNER JOIN directors d ON d.id = m.director_id';
 
     // 3. Executing the query (send the query to the DB)
     $results = $pdo->query($query);
@@ -54,6 +54,11 @@ $pdo = null;
         <p>
             <strong>Date :</strong>
             <?php echo $movie['date_of_release']; ?>
+        </p>
+
+        <p>
+            <strong>Director's name :</strong>
+            <?php echo $movie['first_name'] . ' ' . $movie['last_name']; ?>
         </p>
 
         <!-- Link to 'Movie detail' page, URL needs the id of the movie -->
