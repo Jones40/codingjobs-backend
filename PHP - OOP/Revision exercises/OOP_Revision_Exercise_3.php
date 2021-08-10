@@ -1,4 +1,4 @@
-é<?php
+<?php
 
 	/*
 	Based on this DB structure : 
