@@ -2,24 +2,23 @@
 /*
 
 Overview : 
-	Create a page to view some flowers.
+	View some flowers.
 	We will have, in database, the tables Flowers
 
 	In the Flowers table, we will record: The name of the flowers and their prices
+	Import 'flower_database.sql' file for this exercise.
 
 	In this exercise, you have to use PDO.
 
 
 Step 1 : Display flowers
-
-	- We will not take into account the creation of the flowers, they will be created manually in the database.	Import 'flower_database.sql' file.
 	
-	- Create the page view-flowers.php
-
 	- Create class FlowerManager.
-	Create a method findAll() that will retrieve all the flowers and return the result
+	Create a method findAll() that will retrieve all the flowers and return the result.
 
-	Display all the flowers on the page.
+	- Create the page view-flowers.php
+	
+	Display all the flowers on the page using FlowerManager->findAll();
 
 Step 2 : 
 
@@ -30,6 +29,8 @@ Step 2 :
 
 	- Edit FlowerManager::findAll() method.
 	This method should now return a set(array) of Flower objects.
+
+	TIPS : You can use PDO::FETCH_CLASS
 
 Step 3 :
 
