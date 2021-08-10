@@ -10,10 +10,10 @@
 
 <body>
     <p>How many characters in your name ?</p>
-    <form action="" method="POST">
+    <form action="" method="GET">
         <input type="text" name="first_name" placeholder="First name"><br>
         <input type="text" name="last_name" placeholder="Last name"><br>
-        <input type="submit" value="Submit">
+        <input type="button" value="Submit">
     </form>
 
     <?php
